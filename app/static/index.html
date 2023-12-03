@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Language Prediction App</title>
+</head>
+<body>
+    <h1>Language Prediction App</h1>
+
+    <p>
+        The app has been designed using a machine learning model built with the following Google Colab: 
+        <a href="https://colab.research.google.com/drive/1uaALcaatvxOu42IhQA4r0bahfdpw-Z7v?usp=sharing" target="_blank">Google Colab</a>.
+        The ML model has been integrated into FastAPI, encapsulated using Docker, and deployed using Heroku.
+    </p>
+    
+    <label for="textInput">Enter Text:</label>
+    <input type="text" id="textInput" placeholder="Type your text here">
+    
+    <button onclick="sendPredictRequest()">Predict</button>
+    
+    <br>
+    
+    <label for="result">Language Predicted:</label>
+    <textarea id="result" rows="4" cols="50" readonly></textarea>
+
+    <script>
+        function sendPredictRequest() {
+            var textInput = document.getElementById('textInput').value;
+
+            fetch('/predict', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    'text': textInput,
+                }),
+            })
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('result').value = data.language;
+            })
+            .catch(error => console.error('Error:', error));
+        }
+    </script>
+</body>
+</html>
