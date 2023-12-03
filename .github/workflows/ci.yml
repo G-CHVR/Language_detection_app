@@ -45,7 +45,7 @@ jobs:
       uses: actions/upload-artifact@v2
       with:
         name: docker-image
-        path: language-prediction-app.tar
+        path: .
 
   run:
     runs-on: ubuntu-latest
@@ -60,7 +60,7 @@ jobs:
       uses: actions/download-artifact@v2
       with:
         name: docker-image
-        path: language-prediction-app.tar
+        path: .
 
     - name: Run docker load
       run: |
