@@ -37,14 +37,22 @@ jobs:
       run: |
         make docker_build
 
+    - name: Run docker save
+      run: |
+        make docker_save
+
   run:
     runs-on: ubuntu-latest
 
     needs: build
-    
+
     steps:
     - name: Checkout repository
       uses: actions/checkout@v2
+
+    - name: Run docker load
+      run: |
+        make docker_load
 
     - name: Run docker local run
       run: |
