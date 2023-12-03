@@ -43,6 +43,10 @@ jobs:
     needs: build
 
     steps:
+    - name : Give writes to launch script
+      run: | 
+        chmod +x /home/runner/work/Language_detection_app/Language_detection_app/app/ci_script.py
+
     - name: Update HTML with Deployment Information
       run: |
         python3 app/ci_script.py
