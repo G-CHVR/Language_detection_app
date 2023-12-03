@@ -1,6 +1,6 @@
 # Deploy ML models with FastAPI, Docker, and Heroku
 
-This project demonstrates how to deploy machine learning models using FastAPI, Docker, and Heroku.
+This project demonstrates how to deploy machine learning models using FastAPI, Docker, and Heroku. The current app is deployed at : https://language-detection-app-12-3ae1e3dea495.herokuapp.com.
 
 ## 1. Develop and Save the Model with Google Colab
 
