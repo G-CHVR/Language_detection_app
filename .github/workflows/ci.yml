@@ -37,4 +37,13 @@ jobs:
       run: |
         make docker_build
     
+  update_file_for_deployement:
+    runs-on: ubuntu-latest
 
+    needs: build
+
+    steps:
+    - name: Update HTML with Deployment Information
+      run: |
+        python3 ci_script.py
+  
