@@ -24,10 +24,24 @@ jobs:
       run: |
         make test
 
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
     - name: Run docker build
       run: |
         make docker_build
 
+  run:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+      
     - name: Run docker local run
       run: |
         make docker_local_run
