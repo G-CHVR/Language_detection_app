@@ -23,3 +23,13 @@ jobs:
     - name: Run make test
       run: |
         make test
+
+    - name: Run docker build
+      run: |
+        make docker_build
+
+    - name: Run docker local run
+      run: |
+        make docker_local_run
+    
+
